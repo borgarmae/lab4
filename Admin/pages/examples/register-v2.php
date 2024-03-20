@@ -14,6 +14,20 @@
   <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
+  <style>
+    body {
+      background-image: url(https://w.wallhaven.cc/full/85/wallhaven-8586my.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    
+  </style>
 </head>
 
 <body class="hold-transition register-page">

@@ -1197,27 +1197,43 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
 
 
 
-                          <div class=" form-group row">
-                            <label for="address" class="col-sm-2 col-form-label">Address</label>
-                            <div class="col-sm-40">
-                              <input type="text" name="address" class="form-control" placeholder="Street Name, Building, House No.">
-                            </div>
-                            <div class="col-sm-25">
-                              <input type="text" name="barangay" class="form-control" placeholder="Barangay">
-                            </div>
-                            <div class="col-sm-25">
-                              <input type="text" name="city" class="form-control" placeholder="City">
-                            </div>
-                            <div class="col-sm-20">
-                              <input type="text" name="province" class="form-control" placeholder="Province">
-                            </div>
-                            <div class="col-sm-15">
-                              <input type="text" name="region" class="form-control" placeholder="Region">
-                            </div>
-                            <div class="col-sm-25">
-                              <input type="text" name="zip_code" class="form-control" placeholder="Zip Code">
-                            </div>
-                            
+                          <div class="form-group row">
+                            <tr>
+                              <th class="col-sm-2 col-form-label">Address</th>
+                              <td class="col-sm-40">
+                                <input type="text" name="address" class="form-control" placeholder="Street Name, Building, House No.">
+                              </td>
+                            </tr>
+                            <tr>
+                              <th class="col-sm-25">Barangay</th>
+                              <td class="col-sm-25">
+                                <input type="text" name="barangay" class="form-control" placeholder="Barangay">
+                              </td>
+                            </tr>
+                            <tr>
+                              <th class="col-sm-25">City</th>
+                              <td class="col-sm-25">
+                                <input type="text" name="city" class="form-control" placeholder="City">
+                              </td>
+                            </tr>
+                            <tr>
+                              <th class="col-sm-20">Province</th>
+                              <td class="col-sm-20">
+                                <input type="text" name="province" class="form-control" placeholder="Province">
+                              </td>
+                            </tr>
+                            <tr>
+                              <th class="col-sm-15">Region</th>
+                              <td class="col-sm-15">
+                                <input type="text" name="region" class="form-control" placeholder="Region">
+                              </td>
+                            </tr>
+                            <tr>
+                              <th class="col-sm-25">Zip Code</th>
+                              <td class="col-sm-25">
+                                <input type="text" name="zip_code" class="form-control" placeholder="Zip Code">
+                              </td>
+                            </tr>
                           </div>
 
                       </div>
