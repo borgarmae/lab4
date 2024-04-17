@@ -59,8 +59,34 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                 $_SESSION['last_name'] = $row['last_name'];
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['user_id'] = $row['user_id'];
+
                 $query = "UPDATE user SET status = 'online' WHERE email = '$email'";
                 mysqli_query($conn, $query);
+
+                $user_id = $row['user_id'];
+                $stmt = $conn->prepare("SELECT * FROM user_profile WHERE user_id=?");
+                $stmt->bind_param("i", $user_id);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                if (mysqli_num_rows($result) === 1) {
+                    $row_profile = mysqli_fetch_assoc($result);
+
+                    $_SESSION['phone_number'] = $row_profile['phone_number'];
+                    $_SESSION['birth_month'] = $row_profile['birth_month'];
+                    $_SESSION['birth_day'] = $row_profile['birth_day'];
+                    $_SESSION['birth_year'] = $row_profile['birth_year'];
+                    $_SESSION['gender'] = $row_profile['gender'];
+                    $_SESSION['address'] = $row_profile['address'];
+                    $_SESSION['barangay'] = $row_profile['barangay'];
+                    $_SESSION['city'] = $row_profile['city'];
+                    $_SESSION['province'] = $row_profile['province'];
+                    $_SESSION['region'] = $row_profile['region'];
+                    $_SESSION['zip_code'] = $row_profile['zip_code'];
+
+                    
+                }
+
                 header("Location:profile.php");
                 exit();
             } else {

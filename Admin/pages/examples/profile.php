@@ -3,7 +3,9 @@
 session_start();
 
 // Check if the user is logged in
-if (isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
+if (isset($_SESSION['user_id'])) {
+
+
 
 ?>
 
@@ -188,7 +190,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
           </div>
 
           <!-- SidebarSearch Form -->
-          <div class="form-inline">
+          <!-- <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
               <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
               <div class="input-group-append">
@@ -197,14 +199,14 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
                 </button>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- Sidebar Menu -->
           <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
@@ -529,14 +531,14 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
                       <i class="far fa-circle nav-icon"></i>
                       <p>Invoice</p>
                     </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../examples/profile.php" class="nav-link active">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Profile</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
+                  </li> -->
+              <li class="nav-item">
+                <a href="../examples/profile.php" class="nav-link active">
+                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                  <p>Profile</p>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
                     <a href="../examples/e-commerce.php" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>E-commerce</p>
@@ -836,8 +838,8 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
                 </a>
               </li>
             </ul>
-          </nav>
-          <!-- /.sidebar-menu -->
+          </nav> -->
+              <!-- /.sidebar-menu -->
         </div>
         <!-- /.sidebar -->
       </aside>
@@ -871,7 +873,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
                 <div class="card card-primary card-outline">
                   <div class="card-body box-profile">
                     <div class="text-center">
-                      <img class="profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
+                      <img class="profile-user-img img-fluid img-circle" src="C:\xampp\htdocs\lab4\Admin\image\<?=$_SESSION['profile_picture'];?>" alt="User profile picture">
                     </div>
 
                     <h3 class="profile-username text-center"><?php echo $_SESSION['user_name']; ?></h3>
@@ -888,12 +890,9 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
                       <li class="list-group-item">
                         <b>Last name</b> <a class="float-right"><?php echo $_SESSION['last_name']; ?></a>
                       </li>
-                      <li class="list-group-item">
-                        <b>Email</b> <a class="float-right"><?php echo $_SESSION['email']; ?></a>
-                      </li>
                     </ul>
 
-                    <a href="#" class="btn btn-primary btn-block"><b>Edit details</b></a>
+                    <!-- <a href="#settings" class="btn btn-primary btn-block"><b>Edit details</b></a> -->
                   </div>
                   <!-- /.card-body -->
                 </div>
@@ -906,35 +905,42 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body">
-                    <strong><i class="fas fa-book mr-1"></i> Education</strong>
+                    <strong><i class="fas fa-envelope mr-1"></i> Email</strong>
 
                     <p class="text-muted">
-                      B.S. in Computer Science from the University of Tennessee at Knoxville
+                      <?php echo $_SESSION['email']; ?>
                     </p>
 
                     <hr>
 
-                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                    <p class="text-muted">Malibu, California</p>
-
-                    <hr>
-
-                    <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+                    <strong><i class="fas fa-phone mr-1"></i> Phone Number</strong>
 
                     <p class="text-muted">
-                      <span class="tag tag-danger">UI Design</span>
-                      <span class="tag tag-success">Coding</span>
-                      <span class="tag tag-info">Javascript</span>
-                      <span class="tag tag-warning">PHP</span>
-                      <span class="tag tag-primary">Node.js</span>
+                      <?php echo $_SESSION['phone_number']; ?>
                     </p>
 
                     <hr>
 
-                    <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+                    <strong><i class="fas fa-birthday-cake mr-1"></i> Birthday</strong>
 
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                    <p class="text-muted">
+                      <?php echo $_SESSION['birth_month'] . " " . $_SESSION['birth_day'] . " " . $_SESSION['birth_year']; ?>
+                    </p>
+
+                    <hr>
+
+                    <strong><i class="fas fa-venus-mars mr-1"></i> Gender</strong>
+
+                    <p class="text-muted">
+                      <?php echo $_SESSION['gender']; ?>
+                    </p>
+
+                    <hr>
+
+                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Address</strong>
+
+                    <p class="text-muted">
+                      <?php echo $_SESSION['address'] . ", " . $_SESSION['barangay'] . ", " . $_SESSION['city'] . ", " . $_SESSION['province'] . " " . $_SESSION['region'] . ", " . $_SESSION['zip_code']; ?>
                   </div>
                   <!-- /.card-body -->
                 </div>
@@ -1160,127 +1166,280 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
                           </div>
                         </div>
                       </div>
+
                       <!-- /.tab-pane -->
-
                       <div class="tab-pane" id="settings">
-                        <form action="profile-index.php" method="post" class="form-horizontal">
-                          <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Phone Number</label>
-                            <div class="col-sm-10">
-                              <input type="text" name="phone_number" class="form-control" placeholder="Phone number">
+
+                        <div class="card">
+                          <div class="card-header" style="background-color: #007BFF;">
+                            <h3 class="card-title">Edit Profile</h3>
+                          </div>
+                          <div class="card-body">
+                            <div class="container">
+                              <form action="profile-index.php" method="post" class="form-horizontal">
+
+                                <?php if (isset($_SESSION['success_message'])) {
+                                  echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
+                                  unset($_SESSION['success_message']);
+                                } ?>
+
+                                <!-- Display error message -->
+                                <?php if (isset($_SESSION['error_message'])) {
+                                  echo '<div class="alert alert-danger">' . $_SESSION['error_message'] . '</div>';
+                                  unset($_SESSION['error_message']);
+                                } ?>
+
+
+                                <!-- Phone Number -->
+                                <div class="form-group row">
+                                  <label class="col-sm-2 col-form-label">Phone Number</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" name="phone_number" class="form-control" pattern="^(09|\+639)\d{9}$" title="Start with 09 or +639 followed by 9 digits" value="<?php
+                                                                                                                                                                                      if (isset($_SESSION['phone_number'])) {
+                                                                                                                                                                                        echo htmlspecialchars($_SESSION['phone_number']);
+                                                                                                                                                                                      }
+                                                                                                                                                                                      ?>" required>
+                                  </div>
+                                </div>
+
+                                <!-- Birthday -->
+                                <div class="form-group row">
+                                  <label class="col-sm-2 col-form-label">Birthday</label>
+                                  <div class="col-sm-3">
+                                    <select name="birth_month" class="form-control" required>
+                                      <option value="">Month</option>
+                                      <option value="January" <?php if (isset($_SESSION['birth_month']) && $_SESSION['birth_month'] == 'January') {
+                                                                echo 'selected';
+                                                              } ?>>January</option>
+                                      <option value="February" <?php if (isset($_SESSION['birth_month']) && $_SESSION['birth_month'] == 'February') {
+                                                                  echo 'selected';
+                                                                } ?>>February</option>
+                                      <option value="March" <?php if (isset($_SESSION['birth_month']) && $_SESSION['birth_month'] == 'March') {
+                                                              echo 'selected';
+                                                            } ?>>March</option>
+                                      <option value="April" <?php if (isset($_SESSION['birth_month']) && $_SESSION['birth_month'] == 'April') {
+                                                              echo 'selected';
+                                                            } ?>>April</option>
+                                      <option value="May" <?php if (isset($_SESSION['birth_month']) && $_SESSION['birth_month'] == 'May') {
+                                                            echo 'selected';
+                                                          } ?>>May</option>
+                                      <option value="June" <?php if (isset($_SESSION['birth_month']) && $_SESSION['birth_month'] == 'June') {
+                                                              echo 'selected';
+                                                            } ?>>June</option>
+                                      <option value="July" <?php if (isset($_SESSION['birth_month']) && $_SESSION['birth_month'] == 'July') {
+                                                              echo 'selected';
+                                                            } ?>>July</option>
+                                      <option value="August" <?php if (isset($_SESSION['birth_month']) && $_SESSION['birth_month'] == 'August') {
+                                                                echo 'selected';
+                                                              } ?>>August</option>
+                                      <option value="September" <?php if (isset($_SESSION['birth_month']) && $_SESSION['birth_month'] == 'September') {
+                                                                  echo 'selected';
+                                                                } ?>>September</option>
+                                      <option value="October" <?php if (isset($_SESSION['birth_month']) && $_SESSION['birth_month'] == 'Ocorber') {
+                                                                echo 'selected';
+                                                              } ?>>October</option>
+                                      <option value="November" <?php if (isset($_SESSION['birth_month']) && $_SESSION['birth_month'] == 'November') {
+                                                                  echo 'selected';
+                                                                } ?>>November</option>
+                                      <option value="December" <?php if (isset($_SESSION['birth_month']) && $_SESSION['birth_month'] == 'December') {
+                                                                  echo 'selected';
+                                                                } ?>>December</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-sm-2">
+                                    <input type="text" name="birth_day" class="form-control" placeholder="Day" pattern="[1-9]|[12][0-9]|3[01]" title="Enter a valid day (1 to 31)" value="<?php
+                                                                                                                                                                                          if (isset($_SESSION['birth_day'])) {
+                                                                                                                                                                                            echo htmlspecialchars($_SESSION['birth_day']);
+                                                                                                                                                                                          }
+                                                                                                                                                                                          ?>" required>
+                                  </div>
+                                  <div class="col-sm-2">
+                                    <input type="text" name="birth_year" class="form-control" placeholder="Year" pattern="19\d{2}|20\d{2}" title="Enter a valid year (1900 to current year)" value="<?php
+                                                                                                                                                                                                    if (isset($_SESSION['birth_year'])) {
+                                                                                                                                                                                                      echo htmlspecialchars($_SESSION['birth_year']);
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                    ?>" required>
+                                  </div>
+                                </div>
+
+                                <!-- Gender -->
+                                <div class="form-group row">
+                                  <label class="col-sm-2 col-form-label">Gender</label>
+                                  <div class="col-sm-10">
+                                    <div class="form-check form-check-inline">
+                                      <input type="radio" name="gender" class="form-check-input" value="Male" <?php
+                                                                                                              if (isset($_SESSION['gender']) && $_SESSION['gender'] == 'Male') {
+                                                                                                                echo 'checked';
+                                                                                                              }
+                                                                                                              ?>>
+                                      <label class="form-check-label">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input type="radio" name="gender" class="form-check-input" value="Female" <?php
+                                                                                                                if (isset($_SESSION['gender']) && $_SESSION['gender'] == 'Female') {
+                                                                                                                  echo 'checked';
+                                                                                                                }
+                                                                                                                ?>>
+                                      <label class="form-check-label">Female</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input type="radio" name="gender" class="form-check-input" value="Prefer not to say" <?php
+                                                                                                                            if (isset($_SESSION['gender']) && $_SESSION['gender'] == 'Prefer not to say') {
+                                                                                                                              echo 'checked';
+                                                                                                                            }
+                                                                                                                            ?>>
+                                      <label class="form-check-label">Prefer not to say</label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Address -->
+                                <div class="form-group row">
+                                  <label class="col-sm-2 col-form-label">Address</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" name="address" class="form-control mb-2" placeholder="Street Name, Building, House No." value="<?php
+                                                                                                                                                      if (isset($_SESSION['address'])) {
+                                                                                                                                                        echo htmlspecialchars($_SESSION['address']);
+                                                                                                                                                      }
+                                                                                                                                                      ?>" required>
+                                    <div class="row">
+                                      <div class="col-sm-4">
+                                        <input type="text" name="barangay" class="form-control mb-2" placeholder="Barangay" value="<?php
+                                                                                                                                    if (isset($_SESSION['barangay'])) {
+                                                                                                                                      echo htmlspecialchars($_SESSION['barangay']);
+                                                                                                                                    }
+                                                                                                                                    ?>" required>
+                                      </div>
+                                      <div class="col-sm-4">
+                                        <input type="text" name="city" class="form-control mb-2" placeholder="City" value="<?php
+                                                                                                                            if (isset($_SESSION['city'])) {
+                                                                                                                              echo htmlspecialchars($_SESSION['city']);
+                                                                                                                            }
+                                                                                                                            ?>" required>
+                                      </div>
+                                      <div class="col-sm-4">
+                                        <input type="text" name="province" class="form-control mb-2" placeholder="Province" value="<?php
+                                                                                                                                    if (isset($_SESSION['province'])) {
+                                                                                                                                      echo htmlspecialchars($_SESSION['province']);
+                                                                                                                                    }
+                                                                                                                                    ?>" required>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-sm-6">
+                                        <input type="text" name="region" class="form-control mb-2" placeholder="Region" value="<?php
+                                                                                                                                if (isset($_SESSION['region'])) {
+                                                                                                                                  echo htmlspecialchars($_SESSION['region']);
+                                                                                                                                }
+                                                                                                                                ?>" required>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <input type="text" name="zip_code" class="form-control" placeholder="Zip Code" pattern="^\d{4}$" title="Enter a valid 4-digit ZIP code" value="<?php
+                                                                                                                                                                                        if (isset($_SESSION['zip_code'])) {
+                                                                                                                                                                                          echo htmlspecialchars($_SESSION['zip_code']);
+                                                                                                                                                                                        }
+                                                                                                                                                                                        ?>" required>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Terms and Conditions -->
+                                <div class="form-group row">
+                                  <div class="offset-sm-2 col-sm-10">
+                                    <div class="form-check">
+                                      <input type="checkbox" class="form-check-input" required>
+                                      <label class="form-check-label">
+                                        I agree to the <a href="#">terms and conditions</a>
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Update Button -->
+                                <div class="form-group row">
+                                  <div class="offset-sm-2 col-sm-10">
+                                    <button type="submit" name="btn_update_profile" class="btn btn-danger">Update</button>
+                                  </div>
+                                </div>
+                              </form>
                             </div>
+
+
+
+
                           </div>
 
-                          <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Gender</label>
-                            <div class="form-check form-check-inline">
-                              <label><input type="radio" name="gender" class="form-check-label" value="male"> Male</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                              <label><input type="radio" name="gender" class="form-check-label" value="female"> Female</label>
-                            </div>
-                          </div>
 
-                          <div class=" form-group row">
-                            <label class="col-sm-2 col-form-label">Birthday</label>
-                            <div class="col-sm-15">
-                              <input type="text" name="birth_month" class="form-control" placeholder="Month">
-                            </div>
-                            <div class="col-sm-20">
-                              <input type="text" name="birth_day" class="form-control" placeholder="Day">
-                            </div>
+                          <!-- /.tab-pane -->
 
-                            <div class="col-sm-25">
-                              <input type="text" name="birth_year" class="form-control" placeholder="Year">
-                            </div>
-                          </div>
-
-
-
-                          <div class="form-group row">
-                            <tr>
-                              <th class="col-sm-2 col-form-label">Address</th>
-                              <td class="col-sm-40">
-                                <input type="text" name="address" class="form-control" placeholder="Street Name, Building, House No.">
-                              </td>
-                            </tr>
-                            <tr>
-                              <th class="col-sm-25">Barangay</th>
-                              <td class="col-sm-25">
-                                <input type="text" name="barangay" class="form-control" placeholder="Barangay">
-                              </td>
-                            </tr>
-                            <tr>
-                              <th class="col-sm-25">City</th>
-                              <td class="col-sm-25">
-                                <input type="text" name="city" class="form-control" placeholder="City">
-                              </td>
-                            </tr>
-                            <tr>
-                              <th class="col-sm-20">Province</th>
-                              <td class="col-sm-20">
-                                <input type="text" name="province" class="form-control" placeholder="Province">
-                              </td>
-                            </tr>
-                            <tr>
-                              <th class="col-sm-15">Region</th>
-                              <td class="col-sm-15">
-                                <input type="text" name="region" class="form-control" placeholder="Region">
-                              </td>
-                            </tr>
-                            <tr>
-                              <th class="col-sm-25">Zip Code</th>
-                              <td class="col-sm-25">
-                                <input type="text" name="zip_code" class="form-control" placeholder="Zip Code">
-                              </td>
-                            </tr>
-                          </div>
-
-                      </div>
-
-                      <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                            </label>
-                          </div>
                         </div>
+
+                        <div class="card">
+                          <div class="card-header" style="background-color: #007BFF;">
+                            <h3 class="card-title">Edit Profile Picture</h3>
+                          </div>
+                          <div class="card-body">
+                              <div class="container">
+                                <form action="upload.php" method="post" enctype="multipart/form-data">
+
+                                  <?php if (isset($_SESSION['success_message'])) {
+                                    echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
+                                    unset($_SESSION['success_message']);
+                                  } ?>
+
+                                  <!-- Display error message -->
+                                  <?php if (isset($_SESSION['error_message'])) {
+                                    echo '<div class="alert alert-danger">' . $_SESSION['error_message'] . '</div>';
+                                    unset($_SESSION['error_message']);
+                                  } ?>
+
+                                  <div class="form-group">
+                                    <label for="picture">Choose a new profile picture:</label>
+                                    <input type="file" name="picture" id="picture">
+                                  </div>
+                                  <button type="submit" name="submit" class="btn btn-primary">Upload</button>
+                                </form>
+                              </div>
+                          </div>
+
+
+                          <!-- /.tab-content -->
+                        </div><!-- /.card-body -->
+
+
+
+
                       </div>
-                      <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger">Submit</button>
-                        </div>
-                      </div>
-                      </form>
+                      <!-- /.card -->
+
+
+
+
                     </div>
-                    <!-- /.tab-pane -->
-                  </div>
-                  <!-- /.tab-content -->
-                </div><!-- /.card-body -->
-              </div>
-              <!-- /.card -->
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-      </div><!-- /.container-fluid -->
-      </section>
-      <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-      <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0
-      </div>
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+                    <!-- /.col -->
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+
+
+                  </div>
+                  <!-- /.row -->
+                </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+      <footer class="main-footer">
+        <div class="float-right d-none d-sm-block">
+          <b>Version</b> 3.2.0
+        </div>
+        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+      </footer>
+
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
 

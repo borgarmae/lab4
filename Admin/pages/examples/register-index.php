@@ -117,9 +117,10 @@ if (
 
             // Get the user id of the inserted user
             $user_id = mysqli_insert_id($conn);
-
+            $image = 'default.png';
+            
             // Insert data into user_profile with the user id
-            $sql3 = "INSERT INTO user_profile (user_id) VALUES('$user_id')";
+            $sql3 = "INSERT INTO user_profile (user_id, profile_picture) VALUES('$user_id', '$image')";
             $result3 = mysqli_query($conn, $sql3);
 
             if ($result2) {

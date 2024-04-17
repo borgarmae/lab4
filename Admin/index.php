@@ -1,5 +1,7 @@
-
-
+<?php
+header('Location: pages/examples/login-v2.php');
+exit;
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -1507,4 +1509,3 @@
 <script src="dist/js/pages/dashboard.js"></script>
 </body>
 </html>
-
